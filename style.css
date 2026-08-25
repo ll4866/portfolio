@@ -1,0 +1,133 @@
+html, body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at center,
+            #02102D 0%,
+            #01050E 100%
+        );
+    font-family:'Times New Roman', Times, serif'
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+#loader {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    color: rgba(255, 255, 255, 100);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation:
+        appear 2s forwards,
+        disappear 1s forwards;
+
+    animation-delay:
+        0s,
+        3s;
+}
+
+.loader-name {
+    font-size: 38px;
+}
+
+.loader-subtitle {
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* =========================
+   LANGUAGE SELECTOR
+========================= */
+
+.language-selector {
+    display: none;
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+}
+
+.language-button {
+    background-color: rgba(43, 92, 125, 0.5);
+    color: white;
+    border: 1px solid #2B5C7D;
+    border-radius: 15px;
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.globe {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: rgba(255, 255, 255, 1);
+    stroke-width: 1.5;
+    vertical-align: -2px;
+    margin-right: 2px;
+}
+
+.language-menu {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 32px;
+    background-color: rgba(135, 187, 222, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2px;
+    min-width: 90px;
+    font-size: 11px;
+}
+
+.language-menu a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    text-align: right;
+    border-radius: 10px;
+}
+
+.language-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
