@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>林书维</title>
+    <title>Lucas Lin</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -27,24 +27,115 @@
         </div>
     </div>
 
-    <!-- LANGUAGE SELECTOR -->
+    <div id="main-content">
 
-    <div class="language-selector">
+        <!-- LANGUAGE SELECTOR -->
 
-        <button class="language-button">
-            <svg class="globe" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"></circle>
-                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-            </svg>
-            中文
-        </button>
+        <div class="language-selector">
 
-        <div class="language-menu">
-            <a href="en.html"> English (US)</a>
-            <a href="zh.html"> 中文 (简体)</a>
-            <a href="pt.html"> Português (BR)</a>
+            <button class="language-button">
+                <svg class="globe" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                </svg>
+                中文
+            </button>
+
+            <div class="language-menu">
+                <a href="en.html"> English (US)</a>
+                <a href="zh.html"> 中文 (简体)</a>
+                <a href="pt.html"> Português (BR)</a>
+            </div>
+
         </div>
+
+        <!-- =========================
+        ABOUT ME
+        ========================= -->
+
+        <section class="about">
+
+            <div class="about-left">
+
+                <div class="about-photo">
+                    <img src="assets/images/profile.jpg" alt="Lucas Lin">
+                </div>
+
+                <div class="about-contact">
+                    <p> 巴西，圣保罗 </p>
+                    <p> +86 1572 1517 399 </p>
+                    <p> ll4866@nyu.edu </p>
+                </div>
+
+            </div>
+
+            <div class="about-content">
+                <h2> 关于我 </h2>
+                <h1> 林书维 </h1>
+                <h3> 交互与体验设计师 </h3>
+
+                <p>
+                    我是一名体验与交互设计师，毕业于纽约大学上海分校互动媒体艺术专业。
+                    作为第四代华裔巴西人，我在巴西、美国和中国的教育经历塑造了我对人与科技、环境以及彼此之间互动方式的理解。
+                </p>
+
+                <p>
+                    从在巴西的双语德语学校学习，到在美国继续接受教育，再到后来在上海完成大学学位，我逐渐形成了多元文化的视角，并将其融入自己的设计方法。
+                    我希望通过互动系统、数字体验以及日常互动，创造能够连接人与人、科技与文化的体验。
+                </p>
+
+                <div class="about-links">
+                    <p>
+                        <strong>简历：</strong>
+                        <a href="https://docs.google.com/document/d/1bVZafp3zjorOXG2Rb_D0Q80KeKGj3g_dlSHvbhM6Sko/edit?usp=sharing">ENG</a> |
+                        <a href="https://docs.google.com/document/d/11mer4q4pTS5wXX03wqBzoNHdxvsw8izZ_-g2s90Hzuk/edit?usp=sharing">中文</a> |
+                        <a href="https://docs.google.com/document/d/1bWQyQ3P6VmpWv_kHaNYCU2W_NtSp1sDcziYkruqeTkg/edit?usp=sharing">PT</a>
+                    </p>
+
+                    <p class="social-links">
+
+                        <a href="https://www.linkedin.com/in/ll4866/"> <img src="assets/images/logo/linkedin.png" alt="LinkedIn"> LinkedIn </a> |
+                        <a href="https://github.com/ll4866"> <img src="assets/images/logo/github.png" alt="GitHub"> GitHub </a> |
+                        <a href="https://www.youtube.com/@NYU-Lucas"> <img src="assets/images/logo/youtube.png" alt="YouTube"> YouTube </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="about-back">
+                <div class="contact-content">
+                    <h2> 联系我 </h2>
+                    <h1> 聊聊吧！</h1>
+
+                    <form id="contact-form">
+
+                        <div class="form-group">
+                            <label for="sender-email">你的邮箱：</label>
+                            <input type="email" id="sender-email" placeholder="yourname@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-subject">主题：</label>
+                            <input type="text" id="email-subject" placeholder="你好，Lucas" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-message">留言：</label>
+                            <textarea id="email-message" placeholder="在这里写下你的留言..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-button">发送 ↗</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </section>
+
     </div>
 
     <script src="script.js"></script>

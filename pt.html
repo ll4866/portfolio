@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 
 <head>
 
@@ -27,24 +27,114 @@
         </div>
     </div>
 
-    <!-- LANGUAGE SELECTOR -->
+    <div id="main-content">
 
-    <div class="language-selector">
+        <!-- LANGUAGE SELECTOR -->
 
-        <button class="language-button">
-            <svg class="globe" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"></circle>
-                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-            </svg>
-            PT
-        </button>
+        <div class="language-selector">
 
-        <div class="language-menu">
-            <a href="en.html"> English (US)</a>
-            <a href="zh.html"> 中文 (简体)</a>
-            <a href="pt.html"> Português (BR)</a>
+            <button class="language-button">
+                <svg class="globe" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                </svg>
+                PT
+            </button>
+
+            <div class="language-menu">
+                <a href="en.html"> English (US)</a>
+                <a href="zh.html"> 中文 (简体)</a>
+                <a href="pt.html"> Português (BR)</a>
+            </div>
+
         </div>
+
+        <!-- =========================
+        ABOUT ME
+        ========================= -->
+
+        <section class="about">
+
+            <div class="about-left">
+
+                <div class="about-photo">
+                    <img src="assets/images/profile.jpg" alt="Lucas Lin">
+                </div>
+
+                <div class="about-contact">
+                    <p> São Paulo, Brasil </p>
+                    <p> +86 1572 1517 399 </p>
+                    <p> ll4866@nyu.edu </p>
+                </div>
+
+            </div>
+
+            <div class="about-content">
+                <h2>SOBRE MIM </h2>
+                <h1> LUCAS LIN </h1>
+                <h3> DESIGNER DE INTERAÇÃO E EXPERIÊNCIA </h3>
+                <p>
+                    Sou um designer de Experiência e Interação com formação em Interactive Media Arts pela New York University Shanghai.
+                    Como brasileiro de quarta geração de ascendência chinesa, minha formação entre o Brasil, os Estados Unidos e a China moldou minha compreensão sobre como as pessoas interagem com a tecnologia, os ambientes e umas com as outras.
+                </p>
+
+                <p>
+                    Desde estudar em uma escola bilíngue alemã no Brasil, continuar minha formação nos Estados Unidos e posteriormente concluir minha graduação em Xangai, desenvolvi uma perspectiva multicultural que influencia minha abordagem ao design.
+                    Tenho interesse em criar experiências que conectem pessoas, tecnologia e cultura, seja por meio de sistemas interativos, experiências digitais ou interações do cotidiano.
+                </p>
+
+                <div class="about-links">
+                    <p>
+                        <strong>Currículo:</strong>
+                        <a href="https://docs.google.com/document/d/1bVZafp3zjorOXG2Rb_D0Q80KeKGj3g_dlSHvbhM6Sko/edit?usp=sharing">ENG</a> |
+                        <a href="https://docs.google.com/document/d/11mer4q4pTS5wXX03wqBzoNHdxvsw8izZ_-g2s90Hzuk/edit?usp=sharing">中文</a> |
+                        <a href="https://docs.google.com/document/d/1bWQyQ3P6VmpWv_kHaNYCU2W_NtSp1sDcziYkruqeTkg/edit?usp=sharing">PT</a>
+                    </p>
+
+                    <p class="social-links">
+
+                        <a href="https://www.linkedin.com/in/ll4866/"> <img src="assets/images/logo/linkedin.png" alt="LinkedIn"> LinkedIn </a> |
+                        <a href="https://github.com/ll4866"> <img src="assets/images/logo/github.png" alt="GitHub"> GitHub </a> |
+                        <a href="https://www.youtube.com/@NYU-Lucas"> <img src="assets/images/logo/youtube.png" alt="YouTube"> YouTube </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="about-back">
+                <div class="contact-content">
+                    <h2>CONTATO</h2>
+                    <h1>Vamos conversar!</h1>
+
+                    <form id="contact-form">
+
+                        <div class="form-group">
+                            <label for="sender-email">Seu e-mail:</label>
+                            <input type="email" id="sender-email" placeholder="seunome@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-subject">Assunto:</label>
+                            <input type="text" id="email-subject" placeholder="Olá, Lucas" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-message">Mensagem:</label>
+                            <textarea id="email-message" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-button">Enviar ↗</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </section>
+
     </div>
 
     <script src="script.js"></script>

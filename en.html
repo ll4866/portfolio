@@ -27,24 +27,598 @@
         </div>
     </div>
 
-    <!-- LANGUAGE SELECTOR -->
+    <div id="main-content">
 
-    <div class="language-selector">
+        <!-- LANGUAGE SELECTOR -->
 
-        <button class="language-button">
-            <svg class="globe" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"></circle>
-                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-            </svg>
-            EN
-        </button>
+        <div class="language-selector">
 
-        <div class="language-menu">
-            <a href="en.html"> English (US)</a>
-            <a href="zh.html"> 中文 (简体)</a>
-            <a href="pt.html"> Português (BR)</a>
+            <button class="language-button">
+                <svg class="globe" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                </svg>
+                EN
+            </button>
+
+            <div class="language-menu">
+                <a href="en.html"> English (US)</a>
+                <a href="zh.html"> 中文 (简体)</a>
+                <a href="pt.html"> Português (BR)</a>
+            </div>
+
         </div>
+
+        <!-- =========================
+        ABOUT ME
+        ========================= -->
+
+        <section class="about">
+
+            <div class="about-left">
+
+                <div class="about-photo">
+                    <img src="assets/images/profile.jpg" alt="Lucas Lin">
+                </div>
+
+                <div class="about-contact">
+                    <p>São Paulo, Brazil</p>
+                    <p>+86 1572 1517 399</p>
+                    <p>ll4866@nyu.edu</p>
+                </div>
+
+            </div>
+
+            <div class="about-content">
+
+                <h2>ABOUT ME</h2>
+                <h1>LUCAS LIN</h1>
+                <h3>INTERACTION & EXPERIENCE DESIGNER</h3>
+
+                <p>
+                    I am an Experience & Interaction Designer with a background in Interactive Media Arts at New York University Shanghai.
+                    As a fourth-generation Chinese Brazilian, my education across Brazil, the United States, and China has shaped my understanding of how people interact with technology, environments, and each other.
+                </p>
+
+                <p>
+                    From studying at a bilingual German school in Brazil, continuing my education in the United States, and later pursuing my degree in Shanghai, I have developed a multicultural perspective that influences my approach to design.
+                    I am interested in creating experiences that connect people, technology, and culture, whether through interactive systems, digital experiences, or everyday interactions.
+                </p>
+
+                <div class="about-links">
+
+                    <p>
+                        <strong>Resume:</strong>
+                        <a href="https://docs.google.com/document/d/1bVZafp3zjorOXG2Rb_D0Q80KeKGj3g_dlSHvbhM6Sko/edit?usp=sharing">ENG</a> |
+                        <a href="https://docs.google.com/document/d/11mer4q4pTS5wXX03wqBzoNHdxvsw8izZ_-g2s90Hzuk/edit?usp=sharing">中文</a> |
+                        <a href="https://docs.google.com/document/d/1bWQyQ3P6VmpWv_kHaNYCU2W_NtSp1sDcziYkruqeTkg/edit?usp=sharing">PT</a>
+                    </p>
+
+                    <p class="social-links">
+
+                        <a href="https://www.linkedin.com/in/ll4866/"> <img src="assets/images/logo/linkedin.png" alt="LinkedIn"> LinkedIn </a> |
+                        <a href="https://github.com/ll4866"> <img src="assets/images/logo/github.png" alt="GitHub"> GitHub </a> |
+                        <a href="https://www.youtube.com/@NYU-Lucas"> <img src="assets/images/logo/youtube.png" alt="YouTube"> YouTube </a>
+
+                    </p>
+
+                </div>
+
+                <!-- CONTACT HINT -->
+
+                <p class="flip-hint">
+                    Enter in contact →
+                </p>
+
+            </div>
+
+            <div class="about-back">
+
+                <div class="contact-content">
+
+                    <h2>CONTACT</h2>
+                    <h1>Let's talk!</h1>
+
+                    <form id="contact-form">
+
+                        <div class="form-group">
+                            <label for="sender-email">Your Email:</label>
+                            <input type="email" id="sender-email" placeholder="yourname@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-subject">Subject:</label>
+                            <input type="text" id="email-subject" placeholder="Hello Lucas" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-message">Message:</label>
+                            <textarea id="email-message" placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-button">
+                            Send Message ↗
+                        </button>
+
+                    </form>
+
+                    <!-- ABOUT HINT -->
+
+                    <p class="flip-hint">
+                        ← Back to about
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+        PROJECTS
+        ========================= -->
+
+        <section class="projects">
+
+            <div class="projects-header">
+
+                <h2>PROJECTS</h2>
+
+                <div class="project-tabs">
+
+                    <button class="project-tab active" data-view="favorites">
+                        Favorites
+                    </button>
+
+                    <button class="project-tab" data-view="category">
+                        Category
+                    </button>
+
+                    <button class="project-tab" data-view="timeline">
+                        Timeline
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+            FAVORITES
+            ========================= -->
+
+            <div class="project-view active" id="favorites-view">
+
+                <div class="favorites-list">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="favorite-project">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/project-1.jpg"
+                                alt="Project 1"
+                            >
+
+                        </div>
+
+                        <div class="project-information">
+
+                            <p class="project-year">
+                                2026
+                            </p>
+
+                            <h3>
+                                Project Title
+                            </h3>
+
+                            <p class="project-description">
+                                Short description of the project and what
+                                the project explores.
+                            </p>
+
+                            <p class="project-skills">
+                                Skills: Interaction Design · Creative Coding · Unity
+                            </p>
+
+                            <a
+                                href="project-1.html"
+                                class="more-info"
+                            >
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="favorite-project">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/project-2.jpg"
+                                alt="Project 2"
+                            >
+
+                        </div>
+
+                        <div class="project-information">
+
+                            <p class="project-year">
+                                2025
+                            </p>
+
+                            <h3>
+                                Project Title
+                            </h3>
+
+                            <p class="project-description">
+                                Short description of the project and what
+                                the project explores.
+                            </p>
+
+                            <p class="project-skills">
+                                Skills: UX Design · Prototyping · Research
+                            </p>
+
+                            <a
+                                href="project-2.html"
+                                class="more-info"
+                            >
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="favorite-project">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/project-3.jpg"
+                                alt="Project 3"
+                            >
+
+                        </div>
+
+                        <div class="project-information">
+
+                            <p class="project-year">
+                                2025
+                            </p>
+
+                            <h3>
+                                Project Title
+                            </h3>
+
+                            <p class="project-description">
+                                Short description of the project and what
+                                the project explores.
+                            </p>
+
+                            <p class="project-skills">
+                                Skills: Creative Technology · 3D · Interaction
+                            </p>
+
+                            <a
+                                href="project-3.html"
+                                class="more-info"
+                            >
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <div class="see-more-projects">
+
+                    <a href="#all-projects">
+                        SEE MORE PROJECTS →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+            CATEGORY
+            ========================= -->
+
+            <div class="project-view" id="category-view">
+
+                <div class="category-scroll">
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="category-column">
+
+                        <h3>
+                            INTERACTION
+                        </h3>
+
+                        <div class="category-project">
+
+                            <span>2026</span>
+
+                            <h4>
+                                Project Title
+                            </h4>
+
+                            <p>
+                                Short description...
+                            </p>
+
+                            <a href="project-1.html">
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+
+                        <div class="category-project">
+
+                            <span>2025</span>
+
+                            <h4>
+                                Project Title
+                            </h4>
+
+                            <p>
+                                Short description...
+                            </p>
+
+                            <a href="project-2.html">
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="category-column">
+
+                        <h3>
+                            EXPERIENCE
+                        </h3>
+
+                        <div class="category-project">
+
+                            <span>2026</span>
+
+                            <h4>
+                                Project Title
+                            </h4>
+
+                            <p>
+                                Short description...
+                            </p>
+
+                            <a href="project-3.html">
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="category-column">
+
+                        <h3>
+                            CREATIVE TECHNOLOGY
+                        </h3>
+
+                        <div class="category-project">
+
+                            <span>2025</span>
+
+                            <h4>
+                                Project Title
+                            </h4>
+
+                            <p>
+                                Short description...
+                            </p>
+
+                            <a href="project-1.html">
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ADD MORE CATEGORY COLUMNS HERE -->
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+            TIMELINE
+            ========================= -->
+
+            <div class="project-view" id="timeline-view">
+
+                <div class="timeline">
+
+
+                    <!-- 2026 -->
+
+                    <div class="timeline-year">
+                        2026
+                    </div>
+
+
+                    <!-- PROJECT -->
+
+                    <article class="timeline-project">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-image">
+
+                            <img
+                                src="assets/images/projects/project-1.jpg"
+                                alt="Project 1"
+                            >
+
+                        </div>
+
+                        <div class="timeline-information">
+
+                            <p class="project-year">
+                                2026
+                            </p>
+
+                            <h3>
+                                Project Title
+                            </h3>
+
+                            <p>
+                                Short description of the project
+                                and what it explores.
+                            </p>
+
+                            <p class="project-skills">
+                                Skills: Interaction Design · Unity · Creative Coding
+                            </p>
+
+                            <a href="project-1.html">
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT -->
+
+                    <article class="timeline-project">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-image">
+
+                            <img
+                                src="assets/images/projects/project-2.jpg"
+                                alt="Project 2"
+                            >
+
+                        </div>
+
+                        <div class="timeline-information">
+
+                            <p class="project-year">
+                                2026
+                            </p>
+
+                            <h3>
+                                Project Title
+                            </h3>
+
+                            <p>
+                                Short description of the project
+                                and what it explores.
+                            </p>
+
+                            <p class="project-skills">
+                                Skills: UX Design · Research · Prototyping
+                            </p>
+
+                            <a href="project-2.html">
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 2025 -->
+
+                    <div class="timeline-year">
+                        2025
+                    </div>
+
+
+                    <!-- PROJECT -->
+
+                    <article class="timeline-project">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-image">
+
+                            <img
+                                src="assets/images/projects/project-3.jpg"
+                                alt="Project 3"
+                            >
+
+                        </div>
+
+                        <div class="timeline-information">
+
+                            <p class="project-year">
+                                2025
+                            </p>
+
+                            <h3>
+                                Project Title
+                            </h3>
+
+                            <p>
+                                Short description of the project
+                                and what it explores.
+                            </p>
+
+                            <p class="project-skills">
+                                Skills: 3D · Animation · Interaction
+                            </p>
+
+                            <a href="project-3.html">
+                                MORE INFO →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
 
     <script src="script.js"></script>
