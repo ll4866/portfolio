@@ -6,33 +6,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lucas Lin</title>
-    <link rel="stylesheet" href="style.css">
+    <title> Lucas Lin </title>
+    
+    <!-- STYLE -->
+    <link rel="stylesheet" href="assets/css/loader.css">
+
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/language.css">
+
+    <link rel="stylesheet" href="assets/css/about.css">
+
+    <link rel="stylesheet" href="assets/css/timeline.css">
+    <link rel="stylesheet" href="assets/css/category.css">
+    <link rel="stylesheet" href="assets/css/favorite.css">
 
 </head>
 
 <body>
 
     <!-- LOADING SCREEN -->
-
     <div id="loader">
         <div>
-            <div class="loader-name">
-                欢迎！
-            </div>
-
-            <div class="loader-subtitle">
-                来到林书维的作品集
-            </div>
+            <div class="loader-name"> 欢迎！</div>
+            <div class="loader-subtitle"> 来到林书维的作品集 </div>
         </div>
     </div>
 
     <div id="main-content">
 
         <!-- LANGUAGE SELECTOR -->
-
         <div class="language-selector">
-
             <button class="language-button">
                 <svg class="globe" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="9"></circle>
@@ -44,20 +47,13 @@
 
             <div class="language-menu">
                 <a href="en.html"> English (US)</a>
-                <a href="zh.html"> 中文 (简体)</a>
                 <a href="pt.html"> Português (BR)</a>
             </div>
-
         </div>
 
-        <!-- =========================
-        ABOUT ME
-        ========================= -->
-
+        <!-- ABOUT ME -->
         <section class="about">
-
             <div class="about-left">
-
                 <div class="about-photo">
                     <img src="assets/images/profile.jpg" alt="Lucas Lin">
                 </div>
@@ -67,78 +63,221 @@
                     <p> +86 1572 1517 399 </p>
                     <p> ll4866@nyu.edu </p>
                 </div>
-
             </div>
 
             <div class="about-content">
                 <h2> 关于我 </h2>
                 <h1> 林书维 </h1>
                 <h3> 交互与体验设计师 </h3>
-
                 <p>
                     我是一名体验与交互设计师，毕业于纽约大学上海分校互动媒体艺术专业。
                     作为第四代华裔巴西人，我在巴西、美国和中国的教育经历塑造了我对人与科技、环境以及彼此之间互动方式的理解。
                 </p>
-
                 <p>
                     从在巴西的双语德语学校学习，到在美国继续接受教育，再到后来在上海完成大学学位，我逐渐形成了多元文化的视角，并将其融入自己的设计方法。
                     我希望通过互动系统、数字体验以及日常互动，创造能够连接人与人、科技与文化的体验。
                 </p>
 
-                <div class="about-links">
-                    <p>
-                        <strong>简历：</strong>
-                        <a href="https://docs.google.com/document/d/1bVZafp3zjorOXG2Rb_D0Q80KeKGj3g_dlSHvbhM6Sko/edit?usp=sharing">ENG</a> |
-                        <a href="https://docs.google.com/document/d/11mer4q4pTS5wXX03wqBzoNHdxvsw8izZ_-g2s90Hzuk/edit?usp=sharing">中文</a> |
-                        <a href="https://docs.google.com/document/d/1bWQyQ3P6VmpWv_kHaNYCU2W_NtSp1sDcziYkruqeTkg/edit?usp=sharing">PT</a>
-                    </p>
+                <div class="resume-box">
+                    <!--
+                    <div class="resume-title"> 简历 </div>
+
+                    <div class="resume-links">
+                        <a class="resume-button"
+                            href="assets/resume/2026_LucasLin_Resume_EN.pdf" target="_blank" rel="noopener">
+                            ENG
+                            <span class="download-icon"> ↓ </span>
+                        </a>
+
+                        <a class="resume-button"
+                            href="assets/resume/2026_LucasLin_简历_CN.pdf" target="_blank" rel="noopener">
+                            中文
+                            <span class="download-icon"> ↓ </span>
+                        </a>
+
+                        <a class="resume-button"
+                            href="assets/resume/2026_LucasLin_Currículo_PT.pdf" target="_blank" rel="noopener">
+                            PT
+                            <span class="download-icon"> ↓ </span>
+                        </a>
+                    </div> 
+                    -->
 
                     <p class="social-links">
-
-                        <a href="https://www.linkedin.com/in/ll4866/"> <img src="assets/images/logo/linkedin.png" alt="LinkedIn"> LinkedIn </a> |
-                        <a href="https://github.com/ll4866"> <img src="assets/images/logo/github.png" alt="GitHub"> GitHub </a> |
-                        <a href="https://www.youtube.com/@NYU-Lucas"> <img src="assets/images/logo/youtube.png" alt="YouTube"> YouTube </a>
-
+                        <a href="https://www.linkedin.com/in/ll4866/"> 
+                            <img src="assets/images/logo/linkedin.png" alt="LinkedIn"> 
+                            LinkedIn </a> |
+                        <a href="https://github.com/ll4866"> 
+                            <img src="assets/images/logo/github.png" alt="GitHub"> 
+                            GitHub </a> |
+                        <a href="https://www.youtube.com/@NYU-Lucas"> 
+                            <img src="assets/images/logo/youtube.png" alt="YouTube"> 
+                            YouTube </a>
                     </p>
-
                 </div>
 
+                <p class="flip-hint"> 联的联系 → </p>
             </div>
 
+            <!-- CONTACT CARD -->
             <div class="about-back">
                 <div class="contact-content">
                     <h2> 联系我 </h2>
                     <h1> 聊聊吧！</h1>
+                    <div class="contact-form-container">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="sender-email"> 你的邮箱：</label>
+                                <input type="email" id="sender-email" placeholder="yourname@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-subject">主题：</label>
+                                <input type="text" id="email-subject" placeholder="主题" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-message">留言：</label>
+                                <textarea id="email-message" placeholder="在这里写下你的留言..." required></textarea>
+                            </div>
 
-                    <form id="contact-form">
+                            <button type="submit" class="send-button">发送 ↗</button>
+                        </form>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="sender-email">你的邮箱：</label>
-                            <input type="email" id="sender-email" placeholder="yourname@email.com" required>
-                        </div>
+                    <p class="flip-hint"> ← 返回 </p>
+                </div>
+            </div>
+        </section>
 
-                        <div class="form-group">
-                            <label for="email-subject">主题：</label>
-                            <input type="text" id="email-subject" placeholder="你好，Lucas" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email-message">留言：</label>
-                            <textarea id="email-message" placeholder="在这里写下你的留言..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="send-button">发送 ↗</button>
-
-                    </form>
-
+        <!-- PROJECTS -->
+        <section class="project-page">
+            <div class="projects-header">
+                <h2> 作品 </h2>
+                <div class="project-tabs">
+                    <button class="project-tab active" data-target="favorites-view"> 精选 </button>
+                    <button class="project-tab" data-target="category-view"> 类别 </button>
+                    <button class="project-tab" data-target="timeline-view"> 时间线 </button>
                 </div>
             </div>
 
-        </section>
+            <!-- FAVORITES GALLERY -->
+            <div class="project-view active" id="favorites-view">
+                <div class="favorites-list" id="favorites-list">
+                    <!-- Projects from data -->
+                </div>
 
+                <div class="more-projects">
+                    <a href="#"> 查看全部作品 → </a>
+                </div>
+            </div>
+
+            <!-- CATEGORY GALLERY -->
+            <div class="project-view" id="category-view">
+                <div class="category-wrapper">
+                    <div class="category-list" id="category-list">
+                        <!-- Projects from data -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIMELINE GALLERY -->
+            <div class="project-view" id="timeline-view">
+                <div class="timeline" id="timeline-list">
+                    <!-- Projects from data -->
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script src="script.js"></script>
+    <!-- FUNCTION -->
+    <script src="assets/scripts/about.js"></script>
+    <script src="assets/scripts/language.js"></script>
+    <script src="assets/scripts/loader.js"></script>
+    <script src="assets/scripts/navigation.js"></script>
+
+    <script src="assets/scripts/projects-data/aiStoryGenerator.js"></script>
+    <script src="assets/scripts/projects-data/alphabeticWild.js"></script>
+    <script src="assets/scripts/projects-data/aquaponic.js"></script>
+    <script src="assets/scripts/projects-data/awakeningMonster.js"></script>
+    <script src="assets/scripts/projects-data/blenderModeling.js"></script>
+    <script src="assets/scripts/projects-data/blueGauntlet.js"></script>
+    <script src="assets/scripts/projects-data/capstone.js"></script>
+    <script src="assets/scripts/projects-data/chainReaction.js"></script>
+    <script src="assets/scripts/projects-data/cinematicExpression.js"></script>
+    <script src="assets/scripts/projects-data/citySculpture.js"></script>
+    <script src="assets/scripts/projects-data/codeClash.js"></script>
+    <script src="assets/scripts/projects-data/cosmicContagion.js"></script>
+    <script src="assets/scripts/projects-data/dancingBot.js"></script>
+    <script src="assets/scripts/projects-data/didSherlockInfluence.js"></script>
+    <script src="assets/scripts/projects-data/diyBioceramicBowl.js"></script>
+    <script src="assets/scripts/projects-data/diyBioplasticBowl.js"></script>
+    <script src="assets/scripts/projects-data/diyCrystalExperiment.js"></script>
+    <script src="assets/scripts/projects-data/dragonBillboard.js"></script>
+    <script src="assets/scripts/projects-data/dragonWheelToy.js"></script>
+    <script src="assets/scripts/projects-data/echoesCalmNature.js"></script>
+    <script src="assets/scripts/projects-data/echoesOfSpectacle.js"></script>
+    <script src="assets/scripts/projects-data/elderpreneur.js"></script>
+    <script src="assets/scripts/projects-data/evaluationAIClassification.js"></script>
+    <script src="assets/scripts/projects-data/exploringSpatialDesign.js"></script>
+    <script src="assets/scripts/projects-data/exterminateBug.js"></script>
+    <script src="assets/scripts/projects-data/farmToTable.js"></script>
+    <script src="assets/scripts/projects-data/flyingPigs.js"></script>
+    <script src="assets/scripts/projects-data/foreverLate.js"></script>
+    <script src="assets/scripts/projects-data/foundMaterial.js"></script>
+    <script src="assets/scripts/projects-data/generativeArtWaves.js"></script>
+    <script src="assets/scripts/projects-data/generativeStory.js"></script>
+    <script src="assets/scripts/projects-data/historicalData.js"></script>
+    <script src="assets/scripts/projects-data/hyperPersonalChatroom.js"></script>
+    <script src="assets/scripts/projects-data/imageClassificationBeginner.js"></script>
+    <script src="assets/scripts/projects-data/interactiveDrawing.js"></script>
+    <script src="assets/scripts/projects-data/interactivePets.js"></script>
+    <script src="assets/scripts/projects-data/interfaceRecreationDS.js"></script>
+    <script src="assets/scripts/projects-data/internetExplorer.js"></script>
+    <script src="assets/scripts/projects-data/introToArduino.js"></script>
+    <script src="assets/scripts/projects-data/landArt.js"></script>
+    <script src="assets/scripts/projects-data/linFamilyStoriesAnimation.js"></script>
+    <script src="assets/scripts/projects-data/linsBattle.js"></script>
+    <script src="assets/scripts/projects-data/loopPatterns.js"></script>
+    <script src="assets/scripts/projects-data/lorealAR.js"></script>
+    <script src="assets/scripts/projects-data/manipulatingSpace.js"></script>
+    <script src="assets/scripts/projects-data/martialPlantsChamber.js"></script>
+    <script src="assets/scripts/projects-data/matchingConstellation.js"></script>
+    <script src="assets/scripts/projects-data/mlBubbleRecognition.js"></script>
+    <script src="assets/scripts/projects-data/mosquitoVision.js"></script>
+    <script src="assets/scripts/projects-data/myGolemSelf.js"></script>
+    <script src="assets/scripts/projects-data/natureSymphony.js"></script>
+    <script src="assets/scripts/projects-data/origamiWishTree.js"></script>
+    <script src="assets/scripts/projects-data/particleRains.js"></script>
+    <script src="assets/scripts/projects-data/penguinRobot.js"></script>
+    <script src="assets/scripts/projects-data/photogrammetry.js"></script>
+    <script src="assets/scripts/projects-data/pirateGameAsset.js"></script>
+    <script src="assets/scripts/projects-data/plantMonitor.js"></script>
+    <script src="assets/scripts/projects-data/portableMechanicalArm.js"></script>
+    <script src="assets/scripts/projects-data/riddleChallenge.js"></script>
+    <script src="assets/scripts/projects-data/sculptingMyself.js"></script>
+    <script src="assets/scripts/projects-data/selfPortrait.js"></script>
+    <script src="assets/scripts/projects-data/senseOfPerson.js"></script>
+    <script src="assets/scripts/projects-data/senseOfPlace.js"></script>
+    <script src="assets/scripts/projects-data/sensorySentence.js"></script>
+    <script src="assets/scripts/projects-data/shadowKingdom.js"></script>
+    <script src="assets/scripts/projects-data/shoesPerspective.js"></script>
+    <script src="assets/scripts/projects-data/skateboardDesign.js"></script>
+    <script src="assets/scripts/projects-data/soundCreature.js"></script>
+    <script src="assets/scripts/projects-data/spacialSprialSquares.js"></script>
+    <script src="assets/scripts/projects-data/spiritAnimal.js"></script>
+    <script src="assets/scripts/projects-data/tatuBolaAnimation.js"></script>
+    <script src="assets/scripts/projects-data/tatuCharacterSpine.js"></script>
+    <script src="assets/scripts/projects-data/textspace.js"></script>
+    <script src="assets/scripts/projects-data/touchDesignerSketchV1.js"></script>
+    <script src="assets/scripts/projects-data/touchDesignerSketchV2.js"></script>
+    <script src="assets/scripts/projects-data/whisperOfRain.js"></script>
+    <script src="assets/scripts/projects-data/whoAmI.js"></script>
+    <script src="assets/scripts/projects-data/wirelessPortableCharger.js"></script>
+    <script src="assets/scripts/projects-data/zodiacAnimalMorphing.js"></script>
+    <script src="assets/scripts/projects-data/十万大军睡大街.js"></script>
+    <script src="assets/scripts/projects-data/白蛇.js"></script>
+
+    <script src="assets/scripts/project-data.js"></script>
+    <script src="assets/scripts/projects.js"></script>
 
 </body>
 

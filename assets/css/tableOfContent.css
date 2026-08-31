@@ -1,0 +1,179 @@
+/* Table of content */
+.table-of-content {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    z-index: 300;
+    font-family: 'Times New Roman', Times, serif;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+/* Table of content - active */
+.table-of-content.toc-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Table of content - section */
+.toc-section {
+    display: block;
+    margin: 0;
+    padding: 6px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10px;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Table of content - trigger area */
+#toc-trigger {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    width: 18vw;
+    height: calc(100vh - 100px);
+    z-index: 250;
+    pointer-events: auto;
+}
+
+/* Table of content - section hover */
+.toc-section:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: translateX(5px);
+}
+
+/* Table of content - projects section */
+.toc-project-section {
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Table of content - project list */
+.toc-project-list {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: visible;
+    margin: 3px 0 8px 0;
+    padding: 0;
+    scrollbar-width: none;
+}
+
+/* Table of content - hide scrollbar */
+.toc-project-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Table of content - project item */
+.toc-project-list a {
+    display: block;
+    flex: 0 0 20px;
+    max-width: 140px;
+    padding: 2px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 9px;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 0.48);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition:
+        color 0.25s ease,
+        font-size 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Table of content - project item hover */
+.toc-project-list a:hover {
+    color: rgba(255, 255, 255, 1);
+    font-size: 10.5px;
+    transform: translateX(5px);
+    overflow: visible;
+}
+
+/* Table of content - active project */
+.toc-project-list a.active {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Table of content - medium */
+@media (max-width: 1100px) {
+    .table-of-content {
+        right: 12px;
+        width: 125px;
+    }
+
+    .toc-section {
+        font-size: 9px;
+    }
+
+    .toc-project-list a {
+        max-width: 125px;
+        font-size: 8px;
+    }
+
+    .toc-project-list a:hover {
+        font-size: 10px;
+    }
+}
+
+/* Table of content - small desktop */
+@media (max-width: 900px) {
+    .table-of-content {
+        right: 10px;
+        width: 115px;
+    }
+
+    .toc-section {
+        font-size: 9px;
+    }
+
+    .toc-project-list {
+        height: 100px;
+    }
+
+    .toc-project-list a {
+        max-width: 115px;
+        font-size: 8px;
+        flex-basis: 19px;
+        line-height: 16px;
+    }
+
+    .toc-project-list a:hover {
+        font-size: 10px;
+    }
+}
+
+/* Table of content - mobile */
+@media (max-width: 700px) {
+    .table-of-content {
+        display: none;
+    }
+
+    #toc-trigger {
+        display: none;
+    }
+}
