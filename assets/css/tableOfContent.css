@@ -106,6 +106,20 @@
         transform 0.25s ease;
 }
 
+ /* Table of content - project number */
+.toc-number {
+    display: inline-block;
+    margin-right: 5px;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.toc-title {
+    display: inline;
+}
+
 /* Table of content - project item hover */
 .toc-project-list a:hover {
     color: rgba(255, 255, 255, 1);

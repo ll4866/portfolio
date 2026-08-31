@@ -63,8 +63,17 @@ function updateTableOfContent(
                 link.dataset.projectIndex =
                     project.projectIndex;
 
-                link.textContent =
-                    project.title;
+                link.innerHTML = `
+                    <span class="toc-number">
+                        ${String(
+                            project.projectIndex + 1
+                        ).padStart(2, "0")}
+                    </span>
+
+                    <span class="toc-title">
+                        ${project.title}
+                    </span>
+                `;
 
                 container.appendChild(
                     link
