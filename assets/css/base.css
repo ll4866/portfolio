@@ -51,9 +51,11 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%;
+
     padding-top: 20px;
     padding-bottom: 20px;
-
+    box-sizing: border-box;
     background: radial-gradient(
         circle at center, 
         #02102D 0%, 
@@ -277,10 +279,8 @@ body {
 
     .project-tabs {
         gap: 5px;
-        overflow-x: auto;
         padding-bottom: 0;
         margin-bottom: 0;
-        scrollbar-width: none;
     }
 
     .project-tabs::-webkit-scrollbar {

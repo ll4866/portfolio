@@ -1,14 +1,23 @@
-
 /* Table of content */
 .table-of-content {
     position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    width: 140px;
+
+    top: 0;
+    right: 0;
+
+    width: 300px;
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    padding: 0 20px 0 160px;
+
+    box-sizing: border-box;
+
     z-index: 300;
+
     font-family: 'Times New Roman', Times, serif;
 
     opacity: 0;
@@ -25,7 +34,37 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateY(-50%) translateX(0);
+}
+
+/* Table of content - background */
+.table-of-content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        to left,
+        rgba(1, 5, 14, 0.98) 0%,
+        rgba(1, 5, 14, 0.96) 35%,
+        rgba(1, 5, 14, 0.80) 60%,
+        rgba(1, 5, 14, 0.40) 82%,
+        rgba(1, 5, 14, 0) 100%
+    );
+}
+
+/* Table of content - category */
+.table-of-content.category-active .toc-project-list {
+    display: none;
 }
 
 /* Table of content - section */
@@ -99,7 +138,7 @@
     line-height: 16px;
     color: rgba(255, 255, 255, 0.48);
     text-decoration: none;
-    
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -110,7 +149,7 @@
         transform 0.25s ease;
 }
 
- /* Table of content - project number */
+/* Table of content - project number */
 .toc-number {
     display: inline-block;
     margin-right: 5px;
@@ -144,6 +183,11 @@
         width: 125px;
     }
 
+    .table-of-content.toc-active {
+        padding-left: 25px;
+        padding-right: 18px;
+    }
+
     .toc-section {
         font-size: 9px;
     }
@@ -163,6 +207,11 @@
     .table-of-content {
         right: 10px;
         width: 115px;
+    }
+
+    .table-of-content.toc-active {
+        padding-left: 22px;
+        padding-right: 15px;
     }
 
     .toc-section {
