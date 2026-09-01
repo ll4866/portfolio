@@ -1,3 +1,4 @@
+
 const tatuBolaAnimation = {
     image: "assets/images/projects/tatuBolaAnimation.gif",
     startDate: "2022-09-13",

@@ -1,3 +1,4 @@
+
 const senseOfPlace = {
     image: "assets/images/projects/senseOfPlace.png",
     startDate: "2025-02-01",

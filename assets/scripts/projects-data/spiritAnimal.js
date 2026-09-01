@@ -1,3 +1,4 @@
+
 const spiritAnimal = {
     image: "assets/images/projects/spiritAnimal.jpg",
     startDate: "2026-04-19",

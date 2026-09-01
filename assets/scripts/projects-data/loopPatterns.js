@@ -1,3 +1,4 @@
+
 const loopPatterns = {
     image: "assets/images/projects/loopPattern.png",
     startDate: "2022-10-07",

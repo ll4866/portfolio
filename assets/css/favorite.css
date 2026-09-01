@@ -37,7 +37,14 @@
 
     border-radius: 20px;
 
-    background: radial-gradient(circle at var(--light-x, -100%) var(--light-y, -100%), rgba(43, 92, 125, 0.60) 0%, rgba(43, 92, 125, 0.30) 25%, rgba(43, 92, 125, 0) 65%);
+    background: radial-gradient(
+        circle at 
+        var(--light-x, -100%) 
+        var(--light-y, -100%), 
+        rgba(43, 92, 125, 0.60) 0%, 
+        rgba(43, 92, 125, 0.30) 25%, 
+        rgba(43, 92, 125, 0) 65%
+    );
 
     z-index: 0;
     pointer-events: none;

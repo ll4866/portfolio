@@ -1,3 +1,4 @@
+
 const echoesOfSpectacle = {
     image: "assets/images/projects/echoesSpectacle.png",
     startDate: "2024-09-15",

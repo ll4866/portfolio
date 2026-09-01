@@ -1,3 +1,4 @@
+
 const landArt = {
     image: "assets/images/projects/landArt.jpg",
     startDate: "2024-09-12",

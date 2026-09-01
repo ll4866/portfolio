@@ -56,7 +56,9 @@
     box-sizing: border-box;
 
     transform-style: preserve-3d;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: 
+        transform 0.2s ease, 
+        box-shadow 0.2s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
     margin-bottom: 18px;

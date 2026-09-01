@@ -1,3 +1,4 @@
+
 const shoesPerspective = {
     image: "assets/images/projects/shoesPerspective.png",
     startDate: "2024-01-22",

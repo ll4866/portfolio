@@ -1,3 +1,4 @@
+
 const generativeArtWaves = {
     image: "assets/images/projects/generativeArt.gif",
     startDate: "2022-10-03",

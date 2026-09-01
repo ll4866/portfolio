@@ -1,3 +1,4 @@
+
 const alphabeticWild = {
     image: "assets/images/projects/alphabetic.gif",
     startDate: "2025-12-01",

@@ -1,3 +1,4 @@
+
 const manipulatingSpace = {
     image: "assets/images/projects/manipulating.png",
     startDate: "2024-01-22",

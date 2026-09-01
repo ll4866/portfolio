@@ -12,8 +12,8 @@ const uiText = {
         tools: "Tools/Skills",
         duration: "Duration",
         moreInfo: "More Info →",
-        expand: "expand",
-        collapse: "collapse",
+        expand: "(expand)",
+        collapse: "(collapse)",
         previous: "‹",
         next: "›",
         day: "day",
@@ -33,8 +33,8 @@ const uiText = {
         tools: "工具/技能",
         duration: "时长",
         moreInfo: "更多信息 →",
-        expand: "更多",
-        collapse: "收起",
+        expand: "(更多)",
+        collapse: "(收起)",
         previous: "‹",
         next: "›",
         day: "天",
@@ -54,8 +54,8 @@ const uiText = {
         tools: "Ferramentas/Habilidades",
         duration: "Duração",
         moreInfo: "Mais informações →",
-        expand: "Ver mais",
-        collapse: "Ver menos",
+        expand: "(Ver mais)",
+        collapse: "(Ver menos)",
         previous: "‹",
         next: "›",
         day: "dia",
@@ -69,59 +69,47 @@ const uiText = {
     }
 };
 
-// PAGE LOAD
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-        renderProjects();
-    }
-);
+// LOAD PAGE WHEN READY
+document.addEventListener("DOMContentLoaded", function () {
+    renderProjects();
+});
 
 // RENDER ALL PROJECTS
 function renderProjects() {
-    const language =
-        getCurrentLanguage();
+    // PROJECT LIST
+    const language = getCurrentLanguage();
+    const localizedProjects =projects.map(function (project, index) {
+        return {
+            ...project,
+            ...project.languages[language],
+            projectIndex: index
+        };
+    });
 
-    const localizedProjects =
-        projects.map(function (project, index) {
-            return {
-                ...project,
-                ...project.languages[language],
-                projectIndex: index
-            };
-        });
+    // SEND THE PROJECT LIST TO EACH GALLERY
+    renderFavorites(localizedProjects);
+    renderCategories(localizedProjects);
+    renderTimeline(localizedProjects);
 
-    renderFavorites(
-        localizedProjects
-    );
+    // UPDATE TOC BASED ON DATA LIST
+    updateTableOfContent(localizedProjects);
 
-    renderCategories(
-        localizedProjects
-    );
-
-    renderTimeline(
-        localizedProjects
-    );
-
-    updateTableOfContent(
-        localizedProjects
-    );
-
+    // INTERACTIVE EFFECTS
     initializeTimelineLight();
-
     initializeTableOfContentScroll();
 }
 
 // DATE FUNCTIONS
-// Create a local date without timezone conversion
 function createProjectDate(dateString) {
+    // RETURN A DEFAULT DATE WHEN NO DATE IS PROVIDED
     if (!dateString) {
         return new Date(0);
     }
 
-    const parts =
-        dateString.split("-");
+    // CONVERT THE DATE STRING INTO YEAR, MONTH, AND DAY
+    const parts = dateString.split("-");
 
+    // CREATE THE DATE WITHOUT TIMEZONE CONVERSION
     return new Date(
         Number(parts[0]),
         Number(parts[1]) - 1,
@@ -129,26 +117,18 @@ function createProjectDate(dateString) {
     );
 }
 
-// Get only the year from the project end date
+// GET THE PROJECT YEAR (END YEAR)
 function getProjectYear(project) {
-    const date =
-        createProjectDate(
-            project.endDate
-        );
-
+    const date = createProjectDate(project.endDate);
     return date.getFullYear();
 }
 
-// Format a complete date
+// FORMAT PROJECT DATE
 function formatProjectDate(dateString) {
-    const date =
-        createProjectDate(
-            dateString
-        );
+    const date = createProjectDate( dateString );
+    const language = getCurrentLanguage();
 
-    const language =
-        getCurrentLanguage();
-
+    // FORMAT BASED ON LANGUAGE
     if (language === "zh") {
         return date.toLocaleDateString(
             "zh-CN",
@@ -183,185 +163,113 @@ function formatProjectDate(dateString) {
 
 // PROJECT DURATION
 function getProjectDuration(project) {
-    if (
-        !project.startDate ||
-        !project.endDate
-    ) {
-        return "";
-    }
+    const language = getCurrentLanguage();
+    const text = uiText[language];
+    const start = createProjectDate(project.startDate);
+    const end = createProjectDate(project.endDate);
 
-    const language =
-        getCurrentLanguage();
+    // CALCULATE TOTAL NUM OF DAYS
+    const totalDays = Math.round((end - start) / (1000 * 60 * 60 * 24)) + 1;
 
-    const text =
-        uiText[language];
-
-    const start =
-        createProjectDate(
-            project.startDate
-        );
-
-    const end =
-        createProjectDate(
-            project.endDate
-        );
-
-    const totalDays =
-        Math.round(
-            (end - start) /
-            (1000 * 60 * 60 * 24)
-        ) + 1;
-
-    // Less than one week
+    // DISPLAY DAYS WHEN SHORTER THAN A WEEK
     if (totalDays < 7) {
         if (totalDays === 1) {
             return `1 ${text.day}`;
         }
-
         return `${totalDays} ${text.days}`;
     }
 
-    // Less than one month
+    // DISPLAY WEEKS WHEN SHORTER THAN A MONTH 
+    const weeks = Math.round(totalDays / 7 );
     if (totalDays < 30) {
-        const weeks =
-            Math.round(
-                totalDays / 7
-            );
-
+        // SINGULAR VS PLURAL
         if (weeks === 1) {
             return `1 ${text.week}`;
         }
-
         return `${weeks} ${text.weeks}`;
     }
 
-    // Calculate months
-    const months =
-        (
-            (
-                end.getFullYear() -
-                start.getFullYear()
-            ) * 12
-        ) +
-        (
-            end.getMonth() -
-            start.getMonth()
-        );
+    // CALCULATE THE NUMBER OF COMPLETE MONTHS
+    const months = 
+        (( end.getFullYear() - start.getFullYear() ) * 12) +
+        ( end.getMonth() - start.getMonth());
 
+    // DISPLAY MONTHS WHEN SHORTER THAN A YEAR
     if (months < 12) {
+        // SINGULAR VS PLURAL
         if (months === 1) {
             return `1 ${text.month}`;
         }
-
         return `${months} ${text.months}`;
     }
 
-    // Calculate years
-    const years =
-        Math.floor(
-            months / 12
-        );
-
-    const remainingMonths =
-        months % 12;
-
+    // CALCULATE THE NUMBER OF COMPLETE YEARS
+    const years = Math.floor(months / 12);
+    const remainingMonths = months % 12;
     if (remainingMonths === 0) {
+        // SINGULAR VS PLURAL
         if (years === 1) {
             return `1 ${text.year}`;
         }
-
         return `${years} ${text.years}`;
     }
 
-    let yearText =
-        text.years;
-
-    let monthText =
-        text.months;
-
+    // COMBINE REMAINDER
+    let yearText = text.years;
+    let monthText = text.months;
     if (years === 1) {
-        yearText =
-            text.year;
+        yearText = text.year;
     }
-
     if (remainingMonths === 1) {
-        monthText =
-            text.month;
+        monthText = text.month;
     }
-
-    return (
+    return ( 
         `${years} ${yearText}, ` +
         `${remainingMonths} ${monthText}`
     );
 }
 
 // DESCRIPTION PREVIEW
-function createDescription(
-    description,
-    projectIndex,
-    wordLimit =
-        FAVORITE_DESCRIPTION_WORD_LIMIT
-) {
-    const language =
-        getCurrentLanguage();
+function createDescription( description, projectIndex, wordLimit = FAVORITE_DESCRIPTION_WORD_LIMIT) {
+    const language = getCurrentLanguage();
+    const text = uiText[language];
 
-    const text =
-        uiText[language];
-
-    if (!description) {
-        return `
-            <div class="project-description-wrapper">
-                <p class="project-description"></p>
-            </div>
-        `;
+    // CHECK HOW MANY PARAGRPAHS
+    let paragraphs;
+    if (Array.isArray(description)) {
+        paragraphs = description;
+    } else {
+        paragraphs = [description];
     }
 
-    const paragraphs =
-        Array.isArray(description)
-            ? description
-            : [description];
-
-    const fullDescription =
-        paragraphs.join(" ");
-
-    const words =
-        fullDescription
+    // COMBINE INTO ONE PARAGRAPH
+    const fullDescription = paragraphs.join(" ");
+    const words = fullDescription
             .trim()
             .split(/\s+/);
 
-    // No expansion needed
+    // SHOW COMPLETE DESCRIPTION IF IT FITS LIMIT
     if (words.length <= wordLimit) {
         return `
             <div class="project-description-wrapper">
-                ${paragraphs.map(
-                    function (paragraph) {
-                        return `
-                            <p class="project-description">
-                                ${paragraph}
-                            </p>
-                        `;
-                    }
-                ).join("")}
+                ${paragraphs.map( function (paragraph) {
+                    return `<p class="project-description"> ${paragraph} </p>`;
+                }).join("")}
             </div>
         `;
     }
 
-    const preview =
-        words
-            .slice(
-                0,
-                wordLimit
-            )
-            .join(" ");
+    // CREATE SHORT DESCRIPTION VERSION 
+    const preview = words
+        .slice( 0, wordLimit )
+        .join(" ");
 
     return `
         <div class="project-description-wrapper">
             <div class="description-short">
                 <p class="project-description">
                     ${preview}...
-                    <button
-                        type="button"
-                        class="description-expand"
+                    <button type="button" class="description-expand"
                         data-project-index="${projectIndex}">
                         ${text.expand}
                     </button>
@@ -369,65 +277,37 @@ function createDescription(
             </div>
 
             <div class="description-full">
-                ${paragraphs.map(
-                    function (
-                        paragraph,
-                        index
-                    ) {
-                        return `
-                            <p class="project-description">
-                                ${paragraph}${index === paragraphs.length - 1 ? `
-                                    <button
-                                        type="button"
-                                        class="description-expand"
-                                        data-project-index="${projectIndex}">
-                                        ${text.collapse}
-                                    </button>
-                                ` : ""}
-                            </p>
-                        `;
-                    }
-                ).join("")}
+                ${paragraphs.map(function ( paragraph, index) {
+                    return `
+                        <p class="project-description">
+                            ${paragraph}${index === paragraphs.length - 1 ? `
+                                <button type="button" class="description-expand"
+                                    data-project-index="${projectIndex}">
+                                    ${text.collapse}
+                                </button>
+                            ` : ""}
+                        </p>
+                    `;
+                }).join("")}
             </div>
         </div>
     `;
 }
 
 // DESCRIPTION EXPAND
-document.addEventListener(
-    "click",
-    function (event) {
-        const button =
-            event.target.closest(
-                ".description-expand"
-            );
-
-        if (!button) {
-            return;
-        }
-
-        const wrapper =
-            button.closest(
-                ".project-description-wrapper"
-            );
-
-        if (!wrapper) {
-            return;
-        }
-
-        const expanded =
-            wrapper.classList.contains(
-                "expanded"
-            );
-
-        if (expanded) {
-            wrapper.classList.remove(
-                "expanded"
-            );
-        } else {
-            wrapper.classList.add(
-                "expanded"
-            );
-        }
+document.addEventListener("click", function (event) {
+    /// CHECK THE CLICK BUTTON IF IT IS EXPAND/COLLAPSE
+    const button = event.target.closest(".description-expand");
+    if (!button) {
+        return;
     }
-);
+
+    // SWITCH BETWEEN DESCRIPTIONS EXPAND/COLLAPSE
+    const wrapper = button.closest(".project-description-wrapper");
+    const expanded = wrapper.classList.contains("expanded");
+    if (expanded) {
+        wrapper.classList.remove("expanded");
+    } else {
+        wrapper.classList.add("expanded");
+    }
+});

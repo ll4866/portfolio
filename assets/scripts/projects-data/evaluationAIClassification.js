@@ -1,3 +1,4 @@
+
 const evaluationAIClassification = {
     image: "assets/images/projects/evaluateAI.png",
     startDate: "2025-05-04",

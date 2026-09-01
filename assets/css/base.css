@@ -1,8 +1,13 @@
+
 /* Page background */
 html,
 body {
     min-height: 100vh;
-    background: radial-gradient(circle at center, #02102D 0%, #01050E 100%);
+    background: radial-gradient(
+        circle at center, 
+        #02102D 0%, 
+        #01050E 100%
+    );
     background-attachment: fixed;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -48,7 +53,12 @@ body {
     z-index: 100;
     padding-top: 20px;
     padding-bottom: 20px;
-    background: radial-gradient(circle at center, #02102D 0%, #01050E 100%);
+
+    background: radial-gradient(
+        circle at center, 
+        #02102D 0%, 
+        #01050E 100%
+    );
     background-attachment: fixed;
 }
 
@@ -80,6 +90,7 @@ body {
     color: rgba(255, 255, 255, 0.55);
     font-family: 'Times New Roman', Times, serif;
     font-size: 13px;
+    
     cursor: pointer;
     transition:
         background 0.2s ease,

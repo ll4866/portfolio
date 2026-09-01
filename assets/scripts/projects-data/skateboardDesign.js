@@ -1,3 +1,4 @@
+
 const skateboardDesign = {
     image: "assets/images/projects/skateboard.jpeg",
     startDate: "2021-10-25",

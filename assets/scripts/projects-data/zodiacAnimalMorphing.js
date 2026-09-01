@@ -1,3 +1,4 @@
+
 const zodiacAnimalMorphing = {
     image: "assets/images/projects/zodiacAnimal.gif",
     startDate: "2023-01-31",

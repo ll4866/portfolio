@@ -1,6 +1,5 @@
 
-// Keep the main content hidden while
-// the loading animation is playing.
+// LOADING SCREEN
 window.addEventListener("load", function () {
     const loader = document.getElementById("loader");
     const mainContent = document.getElementById("main-content");
@@ -12,17 +11,20 @@ window.addEventListener("load", function () {
         mainContent.style.visibility = "hidden";
     }
 
-    // SHOW CONTENT
+    // SHOW CONTENT AFTER LOADING
     setTimeout(function () {
+        // HIDE LOADER
         if (loader) {
             loader.style.display = "none";
         }
 
+        // SHOW MAIN CONTNET
         if (mainContent) {
             mainContent.style.opacity = "1";
             mainContent.style.visibility = "visible";
         }
 
+        // SHOW LANGUAGE BUTTON
         if (languageSelector) {
             languageSelector.style.display = "block";
         }

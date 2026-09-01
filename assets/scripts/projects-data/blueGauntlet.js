@@ -1,3 +1,4 @@
+
 const blueGauntlet = {
     image: "assets/images/projects/gauntlet.png",
     startDate: "2024-11-11",

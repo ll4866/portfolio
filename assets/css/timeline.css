@@ -99,7 +99,9 @@
 
     border-radius: 50%;
     background: rgba(43, 92, 125, 1);
-    box-shadow: 0 0 0 5px rgba(43, 92, 125, 0.12), 0 0 20px rgba(43, 92, 125, 0.35);
+    box-shadow: 
+        0 0 0 5px rgba(43, 92, 125, 0.12), 
+        0 0 20px rgba(43, 92, 125, 0.35);
 }
 
 /* Timeline section - content column */

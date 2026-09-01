@@ -1,3 +1,4 @@
+
 const mlBubbleRecognition = {
     image: "assets/images/projects/bubble.gif",
     startDate: "2024-09-18",

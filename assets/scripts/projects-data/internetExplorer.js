@@ -1,3 +1,4 @@
+
 const internetExplorer = {
     image: "assets/images/projects/internetExplorer.jpg",
     startDate: "2024-11-11",

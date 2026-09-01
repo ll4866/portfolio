@@ -1,3 +1,4 @@
+
 const imageClassificationBeginner = {
     image: "assets/images/projects/imageClassification.png",
     startDate: "2024-09-02",

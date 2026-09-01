@@ -1,3 +1,4 @@
+
 const capstone = {
     image: "assets/images/projects/capstone.gif",
     startDate: "2026-01-19",

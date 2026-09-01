@@ -1,3 +1,4 @@
+
 const exploringSpatialDesign = {
     image: "assets/images/projects/obstacleCourse.png",
     startDate: "2024-09-03",

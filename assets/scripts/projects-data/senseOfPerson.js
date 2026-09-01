@@ -1,3 +1,4 @@
+
 const senseOfPerson = {
     image: "assets/images/projects/senseOfPerson.png",
     startDate: "2025-05-04",

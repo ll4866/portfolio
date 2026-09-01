@@ -1,3 +1,4 @@
+
 const diyBioceramicBowl = {
     image: "assets/images/projects/diyBioceramic.jpg",
     startDate: "2024-11-12",

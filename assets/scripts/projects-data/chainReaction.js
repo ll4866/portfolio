@@ -1,3 +1,4 @@
+
 const chainReaction = {
     image: "assets/images/projects/chainReaction.gif",
     startDate: "2024-03-01",

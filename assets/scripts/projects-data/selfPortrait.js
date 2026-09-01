@@ -1,3 +1,4 @@
+
 const selfPortrait = {
     image: "assets/images/projects/selfPortrait.png",
     startDate: "2026-02-01",

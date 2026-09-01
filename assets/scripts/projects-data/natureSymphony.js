@@ -1,3 +1,4 @@
+
 const natureSymphony = {
     image: "assets/images/projects/natureSymphony.gif",
     startDate: "2024-10-30",

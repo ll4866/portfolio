@@ -1,3 +1,4 @@
+
 const historicalData = {
     image: "assets/images/projects/zanzibarGazette.png",
     startDate: "2025-04-08",

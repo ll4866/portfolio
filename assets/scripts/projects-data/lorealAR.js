@@ -1,3 +1,4 @@
+
 const lorealAR = {
     image: "assets/images/projects/loreal.png",
     startDate: "2023-01-30",

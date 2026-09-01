@@ -1,3 +1,4 @@
+
 const sensorySentence = {
     image: "assets/images/projects/sensoryBraille.png",
     startDate: "2024-10-09",

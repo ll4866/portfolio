@@ -1,3 +1,4 @@
+
 const exterminateBug = {
     image: "assets/images/projects/experimentBug.gif",
     startDate: "2025-09-09",

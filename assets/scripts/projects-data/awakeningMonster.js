@@ -1,3 +1,4 @@
+
 const awakeningMonster = {
     image: "assets/images/projects/awakeningMonster.gif",
     startDate: "2023-04-31",
@@ -7,7 +8,7 @@ const awakeningMonster = {
         en: {
             title: "Awakening the Monster",
             description: [ 
-                "For the final project in the Digital Animation for Facial Animation class, I created a short video of a person waking up and transforming into a monster, yelling 'Who dares to wake me?\ This project was designed to test and showcase the skills I learned in the class."
+                "For the final project in the Digital Animation for Facial Animation class, I created a short video of a person waking up and transforming into a monster, yelling 'Who dares to wake me? This project was designed to test and showcase the skills I learned in the class."
             ],
             categories: [ "Animation & Film" ],
             tags: [ 

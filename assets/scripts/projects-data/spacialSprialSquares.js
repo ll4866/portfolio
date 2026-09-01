@@ -1,3 +1,4 @@
+
 const spacialSprialSquares = {
     image: "assets/images/projects/spacialSpiralSquares.png",
     startDate: "2022-10-14",

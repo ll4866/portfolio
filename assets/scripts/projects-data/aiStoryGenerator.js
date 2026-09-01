@@ -1,3 +1,4 @@
+
 const aiStoryGenerator = {
     image: "assets/images/projects/aiStoryGenerator.gif",
     startDate: "2024-10-02",
