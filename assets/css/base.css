@@ -1,13 +1,8 @@
-
 /* Page background */
 html,
 body {
     min-height: 100vh;
-    background: radial-gradient(
-        circle at center, 
-        #02102D 0%, 
-        #01050E 100%
-    );
+    background: radial-gradient(circle at center, #02102D 0%, #01050E 100%);
     background-attachment: fixed;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -31,93 +26,6 @@ body {
         opacity: 1;
         visibility: visible;
     }
-}
-
-/* Projects page */
-.project-page {
-    width: 80%;
-    max-width: 1400px;
-    margin: 160px auto 120px auto;
-    transition: transform 0.4s ease;
-}
-
-/* Projects page - table of content active */
-.project-page.toc-active {
-    transform: translateX(-5%);
-}
-
-/* Projects sticky header */
-.projects-sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-sizing: border-box;
-    background: radial-gradient(
-        circle at center, 
-        #02102D 0%, 
-        #01050E 100%
-    );
-    background-attachment: fixed;
-}
-
-/* Projects header */
-.projects-header {
-    margin-bottom: 0;
-}
-
-.projects-header h2 {
-    margin: 0 0 15px 0;
-    font-size: 14px;
-    font-weight: normal;
-    letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* Projects page - tabs */
-.project-tabs {
-    display: flex;
-    gap: 10px;
-}
-
-.project-tab {
-    padding: 10px 18px;
-    border: 1px solid rgba(43, 92, 125, 0.35);
-    border-bottom: none;
-    border-radius: 12px 12px 0 0;
-    background: rgba(43, 92, 125, 0.08);
-    color: rgba(255, 255, 255, 0.55);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 13px;
-    
-    cursor: pointer;
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border 0.2s ease;
-}
-
-.project-tab:hover {
-    background: rgba(43, 92, 125, 0.18);
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.project-tab.active {
-    background: rgba(43, 92, 125, 0.25);
-    border-color: rgba(43, 92, 125, 0.6);
-    color: rgba(255, 255, 255, 1);
-}
-
-/* Projects page - project views */
-.project-view {
-    display: none;
-}
-
-.project-view.active {
-    display: block;
 }
 
 /* Project detail page */
@@ -228,73 +136,9 @@ body {
     color: rgba(255, 255, 255, 1);
 }
 
-/* Projects page - medium */
-@media (max-width: 1100px) {
-    .project-page {
-        width: 86%;
-    }
-}
-
-/* Projects page - small desktop */
-@media (max-width: 900px) {
-    .project-page {
-        width: 88%;
-        margin-top: 120px;
-    }
-
-    .projects-header h2 {
-        font-size: 13px;
-    }
-
-    .project-tabs {
-        gap: 8px;
-    }
-
-    .project-tab {
-        padding: 9px 15px;
-        font-size: 12px;
-    }
-}
-
-/* Projects page - mobile */
+/* Project detail page - mobile */
 @media (max-width: 700px) {
-    .project-page {
-        width: 88%;
-        margin: 100px auto 80px auto;
-    }
 
-    .projects-sticky-header {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-
-    .projects-header {
-        margin-bottom: 0;
-    }
-
-    .projects-header h2 {
-        font-size: 13px;
-        margin-bottom: 15px;
-    }
-
-    .project-tabs {
-        gap: 5px;
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-
-    .project-tabs::-webkit-scrollbar {
-        display: none;
-    }
-
-    .project-tab {
-        flex-shrink: 0;
-        padding: 9px 13px;
-        font-size: 11px;
-        white-space: nowrap;
-    }
-
-    /* Project detail page */
     .project-page-header {
         margin-bottom: 40px;
     }
@@ -335,36 +179,9 @@ body {
     }
 }
 
-/* Projects page - tiny mobile */
+/* Project detail page - tiny mobile */
 @media (max-width: 400px) {
-    .project-page {
-        width: 88%;
-        margin-top: 80px;
-        margin-left: auto;
-        margin-right: auto;
-    }
 
-    .projects-sticky-header {
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-
-    .projects-header {
-        margin-bottom: 0;
-        text-align: center;
-    }
-
-    .project-tabs {
-        margin-bottom: 0;
-        justify-content: center;
-    }
-
-    .project-tab {
-        padding: 8px 11px;
-        font-size: 10px;
-    }
-
-    /* Project detail page */
     .project-page-header h1 {
         font-size: 32px;
     }

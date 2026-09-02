@@ -1,6 +1,17 @@
-// TABLE OF CONTENT
-function updateTableOfContent(localizedProjects) {
-    // SELECT THE TABLE OF CONTENT LIST
+/* Table of content */
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        initializeTableOfContent();
+        initializeTableOfContentScroll();
+
+    }
+);
+
+/* Update table of content */
+function updateTableOfContent(projectList) {
+
     const container =
         document.getElementById(
             "toc-project-list"
@@ -10,402 +21,441 @@ function updateTableOfContent(localizedProjects) {
         return;
     }
 
-    // FIND THE CURRENT PROJECT TAB VISIBLE
-    const activeTab =
-        document.querySelector(
-            ".project-tab.active"
-        );
-
-    if (!activeTab) {
-        return;
-    }
-
-    const target =
-        activeTab.getAttribute(
-            "data-target"
-        );
-
-    // SELECT THE TABLE OF CONTENT
-    const tableOfContent =
-        document.querySelector(
-            ".table-of-content"
-        );
-
-    // UPDATE TABLE OF CONTENT CATEGORY STATE
-    if (tableOfContent) {
-        if (target === "category-view") {
-            tableOfContent.classList.add(
-                "category-active"
-            );
-        } else {
-            tableOfContent.classList.remove(
-                "category-active"
-            );
-        }
-    }
-
-    // CLEAR CURRENT TOC PROJECTS
     container.innerHTML = "";
 
-    // FAVORITES GALLERY
-    if (target === "favorites-view") {
-        // GET ONLY THE PROJECTS SHOWN ON THE CURRENT PAGE
-        const start =
-            currentFavoritePage *
-            FAVORITE_PROJECTS_PER_PAGE;
+projectList.forEach(function (project) {
 
-        const end =
-            start +
-            FAVORITE_PROJECTS_PER_PAGE;
+    const link =
+        document.createElement("a");
 
-        const visibleProjects =
-            localizedProjects.slice(
-                start,
-                end
-            );
+    link.className =
+        "toc-project";
 
-        // CREATE TOC LINK FOR EACH PROJECT
-        visibleProjects.forEach(
-            function (project) {
-                const link =
-                    document.createElement(
-                        "a"
-                    );
+    link.href =
+        `#project-${project.projectIndex}`;
 
-                link.className =
-                    "toc-project";
+    link.dataset.projectIndex =
+        project.projectIndex;
 
-                link.href =
-                    `#favorite-project-${project.projectIndex}`;
+    link.textContent =
+        project.title;
 
-                link.dataset.projectIndex =
-                    project.projectIndex;
+    container.appendChild(link);
 
-                link.innerHTML = `
-                    <span class="toc-number">
-                        ${String(
-                            project.projectIndex + 1
-                        ).padStart(2, "0")}
-                    </span>
+});
 
-                    <span class="toc-title">
-                        ${project.title}
-                    </span>
-                `;
+    updateTableOfContentScroll();
 
-                container.appendChild(
-                    link
-                );
-            }
-        );
-
-        return;
-    }
-
-    // CATEGORY GALLERY
-    if (target === "category-view") {
-        // CATEGORY NAVIGATION IS ALREADY DISPLAYED ABOVE THE GALLERY
-        // DO NOT DUPLICATE CATEGORY LINKS INSIDE THE TOC
-        return;
-    }
-
-    // TIMELINE GALLERY
-    if (target === "timeline-view") {
-        // SORT PROJECTS BY END DATE
-        const sortedProjects =
-            [...localizedProjects]
-                .sort(function (a, b) {
-                    return (
-                        createProjectDate(
-                            b.endDate
-                        ) -
-                        createProjectDate(
-                            a.endDate
-                        )
-                    );
-                });
-
-        // CREATE TOC LINK FOR EACH PROJECT
-        sortedProjects.forEach(
-            function (project) {
-                const link =
-                    document.createElement(
-                        "a"
-                    );
-
-                link.className =
-                    "toc-project";
-
-                link.href =
-                    `#timeline-project-${project.projectIndex}`;
-
-                link.dataset.projectIndex =
-                    project.projectIndex;
-
-                link.textContent =
-                    project.title;
-
-                container.appendChild(
-                    link
-                );
-            }
-        );
-    }
 }
-// UPDATE TABLE OF CONTENTS AFTER TAB CHANGE
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-        const tabs =
-            document.querySelectorAll(
-                ".project-tab"
+
+/* Table of content appearance */
+function initializeTableOfContent() {
+
+    const toc =
+        document.getElementById(
+            "table-of-content"
+        );
+
+    const trigger =
+        document.getElementById(
+            "toc-trigger"
+        );
+
+    if (!toc || !trigger) {
+        return;
+    }
+
+    if (window.innerWidth <= 700) {
+        return;
+    }
+
+    let hideTimeout;
+
+    function showToc() {
+
+        if (window.innerWidth <= 700) {
+            return;
+        }
+
+        clearTimeout(hideTimeout);
+
+        toc.classList.add(
+            "toc-active"
+        );
+
+        document.body.classList.add(
+            "toc-visible"
+        );
+
+    }
+
+    function hideToc() {
+
+        hideTimeout =
+            setTimeout(function () {
+
+                if (
+                    !toc.matches(":hover") &&
+                    !trigger.matches(":hover")
+                ) {
+
+                    toc.classList.remove(
+                        "toc-active"
+                    );
+
+                    document.body.classList.remove(
+                        "toc-visible"
+                    );
+
+                }
+
+            }, 250);
+
+    }
+
+    trigger.addEventListener(
+        "mouseenter",
+        showToc
+    );
+
+    trigger.addEventListener(
+        "mouseleave",
+        hideToc
+    );
+
+    toc.addEventListener(
+        "mouseenter",
+        showToc
+    );
+
+    toc.addEventListener(
+        "mouseleave",
+        hideToc
+    );
+
+}
+
+/* Table of content scroll behavior */
+function initializeTableOfContentScroll() {
+
+    if (window.innerWidth <= 700) {
+        return;
+    }
+
+    let scrollTimeout;
+
+    window.addEventListener(
+        "scroll",
+        function () {
+
+                    if (window.innerWidth <= 700) {
+            return;
+        }
+        
+            const toc =
+                document.getElementById(
+                    "table-of-content"
+                );
+
+            if (!toc) {
+                return;
+            }
+
+            toc.classList.add(
+                "toc-active"
             );
 
-        tabs.forEach(
-            function (tab) {
-                tab.addEventListener(
-                    "click",
-                    function () {
-                        const language =
-                            getCurrentLanguage();
+            document.body.classList.add(
+                "toc-visible"
+            );
 
-                        const localizedProjects =
-                            projects.map(
-                                function (
-                                    project,
-                                    index
-                                ) {
-                                    return {
-                                        ...project,
-                                        ...project.languages[
-                                            language
-                                        ],
-                                        projectIndex:
-                                            index
-                                    };
-                                }
-                            );
+            clearTimeout(
+                scrollTimeout
+            );
 
-                        updateTableOfContent(
-                            localizedProjects
+            scrollTimeout =
+                setTimeout(function () {
+
+                    if (
+                        !toc.matches(":hover") &&
+                        !document
+                            .getElementById(
+                                "toc-trigger"
+                            )
+                            ?.matches(":hover")
+                    ) {
+
+                        toc.classList.remove(
+                            "toc-active"
                         );
+
+                        document.body.classList.remove(
+                            "toc-visible"
+                        );
+
                     }
-                );
-            }
-        );
-    }
-);
 
+                }, 700);
 
-// TABLE OF CONTENT SCROLL SYNC
-function initializeTableOfContentScroll() {
+            updateTableOfContentScroll();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+    window.addEventListener(
+        "resize",
+        updateTableOfContentScroll
+    );
+
+    updateTableOfContentScroll();
+
+}
+
+/* Update active table of content item */
+function updateTableOfContentScroll() {
+
     const toc =
-        document.querySelector(
-            ".table-of-content"
+        document.getElementById(
+            "table-of-content"
         );
 
     if (!toc) {
         return;
     }
 
-    let ticking = false;
-
-    // HIGHLIGHT THE PROJECT VISIBLE
-    function updateActiveProject() {
-        const activeTab =
-            document.querySelector(
-                ".project-tab.active"
-            );
-
-        if (!activeTab) {
-            ticking = false;
-            return;
+    const sections = [
+        {
+            element:
+                document.getElementById(
+                    "about-section"
+                ),
+            link:
+                toc.querySelector(
+                    '.toc-section[href="#about-section"]'
+                )
+        },
+        {
+            element:
+                document.getElementById(
+                    "projects-section"
+                ),
+            link:
+                toc.querySelector(
+                    '.toc-section[href="#projects-section"]'
+                )
+        },
+        {
+            element:
+                document.getElementById(
+                    "experience-section"
+                ),
+            link:
+                toc.querySelector(
+                    '.toc-section[href="#experience-section"]'
+                )
+        },
+        {
+            element:
+                document.getElementById(
+                    "education-section"
+                ),
+            link:
+                toc.querySelector(
+                    '.toc-section[href="#education-section"]'
+                )
+        },
+        {
+            element:
+                document.getElementById(
+                    "skills-section"
+                ),
+            link:
+                toc.querySelector(
+                    '.toc-section[href="#skills-section"]'
+                )
         }
+    ].filter(function (section) {
 
-        // GET THE CURRENT GALLERY
-        const target =
-            activeTab.getAttribute(
-                "data-target"
-            );
-
-        let projectsSelector;
-
-        if (target === "favorites-view") {
-            projectsSelector =
-                ".favorite-project";
-        } else if (
-            target === "category-view"
-        ) {
-            // CATEGORY VIEW DOES NOT USE TOC PROJECT ITEMS
-            ticking = false;
-            return;
-        } else if (
-            target === "timeline-view"
-        ) {
-            projectsSelector =
-                ".timeline-project";
-        } else {
-            ticking = false;
-            return;
-        }
-
-        // FIND PROJECTS IN THE CURRENT GALLERY
-        const projectsOnPage =
-            document.querySelectorAll(
-                projectsSelector
-            );
-
-        const tocProjects =
-            document.querySelectorAll(
-                ".toc-project"
-            );
-
-        if (
-            !projectsOnPage.length ||
-            !tocProjects.length
-        ) {
-            ticking = false;
-            return;
-        }
-
-        // FIND THE PROJECT CLOSEST TO THE CENTER OF THE SCREEN
-        const viewportCenter =
-            window.innerHeight / 2;
-
-        let closestProject = null;
-        let closestDistance = Infinity;
-
-        projectsOnPage.forEach(
-            function (project) {
-                const rect =
-                    project.getBoundingClientRect();
-
-                const projectCenter =
-                    rect.top +
-                    rect.height / 2;
-
-                const distance =
-                    Math.abs(
-                        projectCenter -
-                        viewportCenter
-                    );
-
-                if (
-                    distance <
-                    closestDistance
-                ) {
-                    closestDistance =
-                        distance;
-
-                    closestProject =
-                        project;
-                }
-            }
+        return (
+            section.element &&
+            section.link
         );
 
-        if (!closestProject) {
-            ticking = false;
-            return;
-        }
+    });
 
-        // GET PROJECT INDEX
-        const projectIndex =
-            closestProject.dataset.projectIndex;
+    if (!sections.length) {
+        return;
+    }
 
-        if (
-            projectIndex === undefined
-        ) {
-            ticking = false;
-            return;
-        }
+    const referencePoint =
+        window.innerHeight * 0.35;
 
-        // FIND MATCHING TOC LINK
-        const activeLink =
-            document.querySelector(
-                `.toc-project[data-project-index="${projectIndex}"]`
-            );
+    let currentSection =
+        sections[0];
 
-        if (!activeLink) {
-            ticking = false;
-            return;
-        }
+    sections.forEach(function (section) {
 
-        // UPDATE TOC ACTIVE STATE
-        const currentActive =
-            document.querySelector(
-                ".toc-project.active"
-            );
+        const rect =
+            section.element.getBoundingClientRect();
 
         if (
-            currentActive !==
-            activeLink
+            rect.top <=
+            referencePoint
         ) {
-            tocProjects.forEach(
-                function (link) {
-                    link.classList.remove(
-                        "active"
-                    );
-                }
-            );
 
-            activeLink.classList.add(
+            currentSection =
+                section;
+
+        }
+
+    });
+
+    sections.forEach(function (section) {
+
+        section.link.classList.remove(
+            "active"
+        );
+
+    });
+
+    currentSection.link.classList.add(
+        "active"
+    );
+
+    updateActiveProject();
+
+}
+
+/* Update active project */
+function updateActiveProject() {
+
+    const projectsSection =
+        document.getElementById(
+            "projects-section"
+        );
+
+    const toc =
+        document.getElementById(
+            "table-of-content"
+        );
+
+    if (
+        !projectsSection ||
+        !toc
+    ) {
+        return;
+    }
+
+    const projects =
+        document.querySelectorAll(
+            ".project-card"
+        );
+
+    const tocProjects =
+        document.querySelectorAll(
+            ".toc-project"
+        );
+
+    if (
+        !projects.length ||
+        !tocProjects.length
+    ) {
+        return;
+    }
+
+    const sectionRect =
+        projectsSection.getBoundingClientRect();
+
+    const referencePoint =
+        window.innerHeight * 0.35;
+
+    const insideProjects =
+        sectionRect.top <=
+        referencePoint &&
+        sectionRect.bottom >
+        referencePoint;
+
+    if (!insideProjects) {
+
+        tocProjects.forEach(function (link) {
+
+            link.classList.remove(
                 "active"
             );
 
-            // KEEP ACTIVE TOC ITEM CENTERED
-            centerTocItem(
-                activeLink
-            );
-        }
+        });
 
-        ticking = false;
+        return;
     }
 
+    let currentProject =
+        null;
 
-    // PREVENT MULTIPLE SCROLL UPDATES AT ONCE
-    function requestUpdate() {
-        if (ticking) {
-            return;
+    projects.forEach(function (project) {
+
+        const rect =
+            project.getBoundingClientRect();
+
+        if (
+            rect.top <=
+            referencePoint
+        ) {
+
+            currentProject =
+                project;
+
         }
 
-        ticking = true;
+    });
 
-        window.requestAnimationFrame(
-            updateActiveProject
+    if (!currentProject) {
+
+        currentProject =
+            projects[0];
+
+    }
+
+    const projectIndex =
+        currentProject.dataset.projectIndex;
+
+    const activeLink =
+        toc.querySelector(
+            `.toc-project[data-project-index="${projectIndex}"]`
         );
+
+    if (!activeLink) {
+        return;
     }
 
+    tocProjects.forEach(function (link) {
 
-    // UPDATE TOC WHEN SCROLLING
-    window.addEventListener(
-        "scroll",
-        requestUpdate,
-        {
-            passive: true
-        }
+        link.classList.remove(
+            "active"
+        );
+
+    });
+
+    activeLink.classList.add(
+        "active"
     );
 
-
-    // UPDATE TOC WHEN WINDOW SIZE CHANGES
-    window.addEventListener(
-        "resize",
-        requestUpdate
+    centerTocItem(
+        activeLink
     );
 
-
-    // INITIAL UPDATE
-    requestUpdate();
 }
 
-
-// CENTER ACTIVE TABLE OF CONTENT ITEM
+/* Center active table of content item */
 function centerTocItem(item) {
+
     const tocList =
         document.getElementById(
             "toc-project-list"
         );
 
-    // STOP IF NOT AVAILABLE
     if (
         !tocList ||
         !item
@@ -413,7 +463,6 @@ function centerTocItem(item) {
         return;
     }
 
-    // CALCULATE DISTANCE BETWEEN CURRENT AND TARGET
     const listRect =
         tocList.getBoundingClientRect();
 
@@ -438,93 +487,9 @@ function centerTocItem(item) {
         return;
     }
 
-    // MOVE TO TARGET
     tocList.scrollBy({
         top: offset,
         behavior: "smooth"
     });
+
 }
-
-
-// TABLE OF CONTENT CLICK
-document.addEventListener(
-    "click",
-    function (event) {
-        const link =
-            event.target.closest(
-                ".toc-project"
-            );
-
-        // STOP IF THE CLICK IS NOT A TOC PROJECT
-        if (!link) {
-            return;
-        }
-
-        // PREVENT INSTANT JUMP
-        event.preventDefault();
-
-        // GET THE TARGET
-        const href =
-            link.getAttribute(
-                "href"
-            );
-
-        if (!href) {
-            return;
-        }
-
-        const target =
-            document.querySelector(
-                href
-            );
-
-        if (!target) {
-            return;
-        }
-
-        // CALCULATE TARGET CENTER
-        const targetRect =
-            target.getBoundingClientRect();
-
-        const targetCenter =
-            targetRect.top +
-            targetRect.height / 2;
-
-        const viewportCenter =
-            window.innerHeight / 2;
-
-        const scrollPosition =
-            window.scrollY +
-            targetCenter -
-            viewportCenter;
-
-        // MOVE TARGET TO CENTER
-        window.scrollTo({
-            top: scrollPosition,
-            behavior: "smooth"
-        });
-
-        // REMOVE ACTIVE STATE FROM OTHER TOC ITEMS
-        document
-            .querySelectorAll(
-                ".toc-project"
-            )
-            .forEach(
-                function (tocItem) {
-                    tocItem.classList.remove(
-                        "active"
-                    );
-                }
-            );
-
-        // HIGHLIGHT SELECTED TOC LINK
-        link.classList.add(
-            "active"
-        );
-
-        // KEEP SELECTED TOC LINK CENTERED
-        centerTocItem(
-            link
-        );
-    }
-);
